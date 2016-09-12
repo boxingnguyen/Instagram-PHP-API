@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Instagram PHP API
  *
@@ -7,7 +6,7 @@
  * @author Christian Metz
  * @since 01.10.2013
  */
-require '../src/Instagram.php';
+require 'src/Instagram.php';
 
 use MetzWeb\Instagram\Instagram;
 
@@ -15,7 +14,7 @@ use MetzWeb\Instagram\Instagram;
 $instagram = new Instagram(array(
     'apiKey' => '9a0eb7b3e06949b98980256fccf93599',
     'apiSecret' => 'eeaeda3bc5774eb196e53d064e41c7b5',
-    'apiCallback' => 'YOUR_APP_CALLBACK' // must point to success.php
+    'apiCallback' => 'http://192.168.33.30' // must point to success.php
 ));
 
 // receive OAuth code parameter
@@ -80,12 +79,12 @@ if (isset($code)) {
                 $username = $media->user->username;
                 $comment = $media->caption->text;
                 $content .= "<div class=\"content\">
-                           <div class=\"avatar\" style=\"background-image: url({$avatar})\"></div>
-                           <p>{$username}</p>
-                           <div class=\"comment\">{$comment}</div>
-                         </div>";
-                // output media
-                echo $content . '</li>';
+                               <div class=\"avatar\" style=\"background-image: url({$avatar})\"></div>
+                               <p>{$username}</p>
+                               <div class=\"comment\">{$comment}</div>
+                             </div>";
+                    // output media
+                    echo $content . '</li>';
             }
             ?>
         </ul>
